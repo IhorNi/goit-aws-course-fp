@@ -1,0 +1,39 @@
+output "db_instance_id" {
+  description = "RDS instance ID"
+  value       = aws_db_instance.main.id
+}
+
+output "db_instance_address" {
+  description = "RDS instance address"
+  value       = aws_db_instance.main.address
+}
+
+output "db_instance_port" {
+  description = "RDS instance port"
+  value       = aws_db_instance.main.port
+}
+
+output "db_instance_name" {
+  description = "Database name"
+  value       = aws_db_instance.main.db_name
+}
+
+output "db_instance_username" {
+  description = "Master username"
+  value       = aws_db_instance.main.username
+}
+
+output "db_master_user_secret_arn" {
+  description = "ARN of the secret containing the master password"
+  value       = aws_db_instance.main.master_user_secret[0].secret_arn
+}
+
+output "db_credentials_secret_name" {
+  description = "Name of the secret containing DB connection details"
+  value       = aws_secretsmanager_secret.db_credentials.name
+}
+
+output "db_credentials_secret_arn" {
+  description = "ARN of the secret containing DB connection details"
+  value       = aws_secretsmanager_secret.db_credentials.arn
+}
